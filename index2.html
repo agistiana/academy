@@ -11,6 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap"
       rel="stylesheet"
     />
+    <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
       body {
@@ -54,6 +55,14 @@
         100% { transform: translate(0, -0px); }
       }
       
+      /* Navbar scroll effect */
+      .navbar-scroll {
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+      
       /* Custom scrollbar */
       ::-webkit-scrollbar {
         width: 8px;
@@ -72,7 +81,7 @@
   </head>
   <body class="bg-gray-50 text-gray-800">
     <!-- Header -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
+    <header class="fixed top-0 w-full z-50 transition-all duration-300" id="navbar">
       <nav
         class="navbar container mx-auto px-6 py-4 flex justify-between items-center"
       >
@@ -80,11 +89,11 @@
           ><img src="./img/Logo RZF Academy Biru (2).png" alt="" width="40%"
         /></a>
         <div class="hidden md:flex items-center space-x-6">
-          <a href="#home" class="text-gray-600 hover:text-sky-600">Beranda</a>
+          <a href="#home" class="text-gray-600 hover:text-sky-600 transition-colors">Beranda</a>
           <div class="relative group">
             <button
               id="dropdown-button"
-              class="text-gray-600 hover:text-sky-600 flex items-center"
+              class="text-gray-600 hover:text-sky-600 flex items-center transition-colors"
             >
               Program Kursus
               <svg
@@ -104,40 +113,40 @@
             </button>
             <div
               id="dropdown-menu"
-              class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-48"
+              class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-48 transition-all duration-300"
             >
               <a
                 href="#program-pemrograman"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-sky-100"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-sky-100 transition-colors"
                 >Pemrograman Dasar</a
               >
               <a
                 href="#program-word"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-sky-100"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-sky-100 transition-colors"
                 >Microsoft Word</a
               >
               <a
                 href="#program-excel"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-sky-100"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-sky-100 transition-colors"
                 >Microsoft Excel</a
               >
               <a
                 href="#program-powerpoint"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-sky-100"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-sky-100 transition-colors"
                 >Microsoft PowerPoint</a
               >
               <a
                 href="#program-canva"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-sky-100"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-sky-100 transition-colors"
                 >Canva</a
               >
             </div>
           </div>
-          <a href="#tentang" class="text-gray-600 hover:text-sky-600"
+          <a href="#tentang" class="text-gray-600 hover:text-sky-600 transition-colors"
             >Tentang Kami</a
           >
-          <a href="#blog" class="text-gray-600 hover:text-sky-600">Blog</a>
-          <a href="#kontak" class="text-gray-600 hover:text-sky-600">Kontak</a>
+          <a href="#blog" class="text-gray-600 hover:text-sky-600 transition-colors">Blog</a>
+          <a href="#kontak" class="text-gray-600 hover:text-sky-600 transition-colors">Kontak</a>
         </div>
         <a
           href="#form"
@@ -162,34 +171,34 @@
         </button>
       </nav>
       <!-- Mobile Menu -->
-      <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
-        <a href="#home" class="block text-gray-600 hover:text-sky-600"
+      <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2 bg-white">
+        <a href="#home" class="block text-gray-600 hover:text-sky-600 transition-colors"
           >Beranda</a
         >
         <a
           href="#program-pemrograman"
-          class="block text-gray-600 hover:text-sky-600"
+          class="block text-gray-600 hover:text-sky-600 transition-colors"
           >Pemrograman Dasar</a
         >
-        <a href="#program-word" class="block text-gray-600 hover:text-sky-600"
+        <a href="#program-word" class="block text-gray-600 hover:text-sky-600 transition-colors"
           >Microsoft Word</a
         >
-        <a href="#program-excel" class="block text-gray-600 hover:text-sky-600"
+        <a href="#program-excel" class="block text-gray-600 hover:text-sky-600 transition-colors"
           >Microsoft Excel</a
         >
         <a
           href="#program-powerpoint"
-          class="block text-gray-600 hover:text-sky-600"
+          class="block text-gray-600 hover:text-sky-600 transition-colors"
           >Microsoft PowerPoint</a
         >
-        <a href="#program-canva" class="block text-gray-600 hover:text-sky-600"
+        <a href="#program-canva" class="block text-gray-600 hover:text-sky-600 transition-colors"
           >Canva</a
         >
-        <a href="#tentang" class="block text-gray-600 hover:text-sky-600"
+        <a href="#tentang" class="block text-gray-600 hover:text-sky-600 transition-colors"
           >Tentang Kami</a
         >
-        <a href="#blog" class="block text-gray-600 hover:text-sky-600">Blog</a>
-        <a href="#kontak" class="block text-gray-600 hover:text-sky-600"
+        <a href="#blog" class="block text-gray-600 hover:text-sky-600 transition-colors">Blog</a>
+        <a href="#kontak" class="block text-gray-600 hover:text-sky-600 transition-colors"
           >Kontak</a
         >
         <a
@@ -204,21 +213,33 @@
       <!-- Homepage Section -->
       <section id="home" class="section">
         <!-- Hero Banner -->
-        <div class="hero-bg text-white">
+        <div class="hero-bg text-white pt-20">
           <div
             class="bg-slate-900 bg-opacity-60 min-h-[60vh] flex items-center"
           >
             <div class="container mx-auto px-6 text-center">
-              <h1 class="text-4xl md:text-6xl font-bold font-heading mb-4">
+              <h1 
+                class="text-4xl md:text-6xl font-bold font-heading mb-4"
+                data-aos="fade-down"
+                data-aos-duration="1000"
+              >
                 Belajar Digital Skill untuk Semua Usia
               </h1>
-              <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto">
+              <p 
+                class="text-lg md:text-xl mb-8 max-w-3xl mx-auto"
+                data-aos="fade-up"
+                data-aos-duration="1000"
+                data-aos-delay="300"
+              >
                 Kursus Pemrograman, Office, dan Desain yang dirancang khusus
                 untuk jenjang SD, SMP, SMA, hingga Umum.
               </p>
               <a
                 href="#program-pemrograman"
-                class="bg-sky-600 text-white px-8 py-3 rounded-full hover:bg-sky-700 transition-colors text-lg font-semibold tombol-pilih-daftar"
+                class="bg-sky-600 text-white px-8 py-3 rounded-full hover:bg-sky-700 transition-colors text-lg font-semibold tombol-pilih-daftar floating"
+                data-aos="zoom-in"
+                data-aos-duration="1000"
+                data-aos-delay="600"
                 >Pilih Program & Daftar Sekarang</a
               >
             </div>
@@ -228,7 +249,11 @@
         <!-- Menu Cepat Program -->
         <div class="py-16 bg-white">
           <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-slate-900 mb-10">
+            <h2 
+              class="text-3xl font-bold text-center text-slate-900 mb-10"
+              data-aos="fade-up"
+              data-aos-duration="800"
+            >
               Pilih Program Unggulan Kami
             </h2>
             <div
@@ -238,9 +263,12 @@
               <a
                 href="#program-pemrograman"
                 class="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="100"
               >
                 <div
-                  class="bg-sky-100 text-sky-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4"
+                  class="bg-sky-100 text-sky-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 floating"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -262,9 +290,12 @@
               <a
                 href="#program-word"
                 class="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="200"
               >
                 <div
-                  class="bg-blue-100 text-blue-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4"
+                  class="bg-blue-100 text-blue-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 floating"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -286,9 +317,12 @@
               <a
                 href="#program-excel"
                 class="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="300"
               >
                 <div
-                  class="bg-green-100 text-green-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4"
+                  class="bg-green-100 text-green-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 floating"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -310,9 +344,12 @@
               <a
                 href="#program-powerpoint"
                 class="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="400"
               >
                 <div
-                  class="bg-red-100 text-red-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4"
+                  class="bg-red-100 text-red-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 floating"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -334,9 +371,12 @@
               <a
                 href="#program-canva"
                 class="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="500"
               >
                 <div
-                  class="bg-purple-100 text-purple-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4"
+                  class="bg-purple-100 text-purple-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 floating"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -475,12 +515,19 @@
         <!-- Highlight Jenjang -->
         <div class="py-16 bg-white">
           <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-slate-900 mb-10">
+            <h2 
+              class="text-3xl font-bold text-center text-slate-900 mb-10"
+              data-aos="fade-up"
+              data-aos-duration="800"
+            >
               Tersedia untuk Semua Jenjang
             </h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div
                 class="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="100"
               >
                 <img
                   src="https://placehold.co/600x400/1C658C/FFFFFF?text=SD"
@@ -495,13 +542,16 @@
                   </p>
                   <a
                     href="#program-pemrograman"
-                    class="font-semibold text-sky-600 hover:text-sky-800"
+                    class="font-semibold text-sky-600 hover:text-sky-800 transition-colors"
                     >Lihat Pilihan Kursus →</a
                   >
                 </div>
               </div>
               <div
                 class="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="200"
               >
                 <img
                   src="https://placehold.co/600x400/0A2647/FFFFFF?text=SMP"
@@ -516,13 +566,16 @@
                   </p>
                   <a
                     href="#program-pemrograman"
-                    class="font-semibold text-sky-600 hover:text-sky-800"
+                    class="font-semibold text-sky-600 hover:text-sky-800 transition-colors"
                     >Lihat Pilihan Kursus →</a
                   >
                 </div>
               </div>
               <div
                 class="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="300"
               >
                 <img
                   src="https://placehold.co/600x400/1C658C/FFFFFF?text=SMA"
@@ -537,13 +590,16 @@
                   </p>
                   <a
                     href="#program-pemrograman"
-                    class="font-semibold text-sky-600 hover:text-sky-800"
+                    class="font-semibold text-sky-600 hover:text-sky-800 transition-colors"
                     >Lihat Pilihan Kursus →</a
                   >
                 </div>
               </div>
               <div
                 class="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="400"
               >
                 <img
                   src="https://placehold.co/600x400/0A2647/FFFFFF?text=Umum"
@@ -558,7 +614,7 @@
                   </p>
                   <a
                     href="#program-pemrograman"
-                    class="font-semibold text-sky-600 hover:text-sky-800"
+                    class="font-semibold text-sky-600 hover:text-sky-800 transition-colors"
                     >Lihat Pilihan Kursus →</a
                   >
                 </div>
@@ -570,11 +626,19 @@
         <!-- Testimoni -->
         <div class="py-16">
           <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-slate-900 mb-10">
+            <h2 
+              class="text-3xl font-bold text-center text-slate-900 mb-10"
+              data-aos="fade-up"
+              data-aos-duration="800"
+            >
               Apa Kata Alumni Kami?
             </h2>
             <div class="grid md:grid-cols-2 gap-8">
-              <div class="bg-white p-6 rounded-lg shadow-md">
+              <div 
+                class="bg-white p-6 rounded-lg shadow-md"
+                data-aos="fade-right"
+                data-aos-duration="800"
+              >
                 <p class="text-gray-600 italic mb-4">
                   "Materinya mudah diikuti, sekarang saya jadi bisa bikin
                   presentasi yang keren untuk tugas sekolah. Terima kasih RZF
@@ -594,7 +658,11 @@
                   </div>
                 </div>
               </div>
-              <div class="bg-white p-6 rounded-lg shadow-md">
+              <div 
+                class="bg-white p-6 rounded-lg shadow-md"
+                data-aos="fade-left"
+                data-aos-duration="800"
+              >
                 <p class="text-gray-600 italic mb-4">
                   "Anak saya jadi semangat belajar coding setelah ikut kelas di
                   sini. Pengajarnya sabar dan metode belajarnya asyik!"
@@ -620,16 +688,28 @@
         <!-- Final CTA -->
         <div class="bg-slate-900 text-white py-16">
           <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold font-heading mb-4">
+            <h2 
+              class="text-3xl font-bold font-heading mb-4"
+              data-aos="fade-up"
+              data-aos-duration="800"
+            >
               Sudah Siap Memulai?
             </h2>
-            <p class="text-lg mb-8">
+            <p 
+              class="text-lg mb-8"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="200"
+            >
               Jangan tunda lagi. Ambil langkah pertama Anda untuk menguasai
               skill digital hari ini.
             </p>
             <a
               href="#program-pemrograman"
-              class="bg-sky-600 text-white px-8 py-3 rounded-full hover:bg-sky-700 transition-colors text-lg font-semibold"
+              class="bg-sky-600 text-white px-8 py-3 rounded-full hover:bg-sky-700 transition-colors text-lg font-semibold floating"
+              data-aos="zoom-in"
+              data-aos-duration="800"
+              data-aos-delay="400"
               >Lihat Semua Program</a
             >
           </div>
@@ -642,18 +722,31 @@
           <div class="text-center mb-12">
             <h1
               class="text-4xl font-bold text-slate-900 mb-2 program-title"
+              data-aos="fade-up"
+              data-aos-duration="800"
             ></h1>
             <p
               class="text-lg text-gray-600 max-w-3xl mx-auto program-description"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="200"
             ></p>
           </div>
 
           <div class="max-w-4xl mx-auto">
-            <h3 class="text-2xl font-semibold text-center mb-6">
+            <h3 
+              class="text-2xl font-semibold text-center mb-6"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="300"
+            >
               Lihat Materi Sesuai Jenjang Anda
             </h3>
             <div
               class="flex justify-center border-b-2 mb-8 space-x-2 md:space-x-4 program-tabs"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="400"
             >
               <button
                 data-jenjang="sd"
@@ -681,7 +774,12 @@
               </button>
             </div>
 
-            <div class="bg-white p-8 rounded-lg shadow-lg program-content">
+            <div 
+              class="bg-white p-8 rounded-lg shadow-lg program-content"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="500"
+            >
               <!-- Content will be injected by JS -->
             </div>
           </div>
@@ -692,15 +790,29 @@
       <section id="tentang" class="section py-16">
         <div class="max-w-6xl mx-auto text-center">
     <!-- Judul -->
-    <h2 class="text-4xl font-bold text-indigo-800 mb-4">Tentang Kami</h2>
-    <p class="text-gray-600 text-lg max-w-3xl mx-auto mb-12">
+    <h2 
+      class="text-4xl font-bold text-indigo-800 mb-4"
+      data-aos="fade-up"
+      data-aos-duration="800"
+    >Tentang Kami</h2>
+    <p 
+      class="text-gray-600 text-lg max-w-3xl mx-auto mb-12"
+      data-aos="fade-up"
+      data-aos-duration="800"
+      data-aos-delay="200"
+    >
       Kami adalah lembaga kursus offline profesional yang berfokus pada peningkatan keterampilan kerja melalui pembelajaran praktis, instruktur berpengalaman, dan pendekatan yang berorientasi karier.
     </p>
 
     <!-- Grid utama -->
     <div class="grid lg:grid-cols-3 gap-10 text-left">
       <!-- Profil -->
-      <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition">
+      <div 
+        class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition"
+        data-aos="fade-up"
+        data-aos-duration="800"
+        data-aos-delay="300"
+      >
         <h3 class="text-2xl font-semibold text-indigo-700 mb-3">Profil Kami</h3>
         <p class="text-gray-700 leading-relaxed">
           KursusPro berdiri untuk menjembatani kebutuhan dunia kerja dengan kemampuan nyata para peserta. 
@@ -709,7 +821,12 @@
       </div>
 
       <!-- Visi & Misi -->
-      <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition">
+      <div 
+        class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition"
+        data-aos="fade-up"
+        data-aos-duration="800"
+        data-aos-delay="400"
+      >
         <h3 class="text-2xl font-semibold text-indigo-700 mb-3">Visi & Misi</h3>
         <p class="text-gray-700 mb-4">
           Visi kami adalah menjadi lembaga pelatihan terbaik yang mencetak sumber daya manusia kreatif, adaptif, dan profesional.
@@ -723,7 +840,12 @@
       </div>
 
       <!-- Tim -->
-      <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition">
+      <div 
+        class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition"
+        data-aos="fade-up"
+        data-aos-duration="800"
+        data-aos-delay="500"
+      >
         <h3 class="text-2xl font-semibold text-indigo-700 mb-5">Tim Pengajar</h3>
         <div class="space-y-5">
           <div class="flex items-center gap-4">
@@ -752,8 +874,17 @@
       </section>
       <section id="blog" class="section py-16">
         <div class="max-w-6xl mx-auto text-center mb-12">
-    <h2 class="text-3xl md:text-4xl font-bold text-blue-700 mb-3">Blog & Artikel Terbaru</h2>
-    <p class="text-gray-600 max-w-2xl mx-auto">
+    <h2 
+      class="text-3xl md:text-4xl font-bold text-blue-700 mb-3"
+      data-aos="fade-up"
+      data-aos-duration="800"
+    >Blog & Artikel Terbaru</h2>
+    <p 
+      class="text-gray-600 max-w-2xl mx-auto"
+      data-aos="fade-up"
+      data-aos-duration="800"
+      data-aos-delay="200"
+    >
       Dapatkan tips, inspirasi, dan wawasan terbaru seputar teknologi, pelatihan komputer, dan pengembangan keterampilan digital di RZF Academy.
     </p>
   </div>
@@ -762,7 +893,12 @@
   <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
     
     <!-- Artikel 1 -->
-    <article class="bg-gray-50 rounded-2xl shadow-md hover:shadow-xl transition overflow-hidden">
+    <article 
+      class="bg-gray-50 rounded-2xl shadow-md hover:shadow-xl transition overflow-hidden"
+      data-aos="fade-up"
+      data-aos-duration="800"
+      data-aos-delay="100"
+    >
       <img src="img/blog1.jpg" alt="Belajar komputer di era digital"
            class="w-full h-48 object-cover">
       <div class="p-6 text-left">
@@ -778,7 +914,12 @@
     </article>
 
     <!-- Artikel 2 -->
-    <article class="bg-gray-50 rounded-2xl shadow-md hover:shadow-xl transition overflow-hidden">
+    <article 
+      class="bg-gray-50 rounded-2xl shadow-md hover:shadow-xl transition overflow-hidden"
+      data-aos="fade-up"
+      data-aos-duration="800"
+      data-aos-delay="200"
+    >
       <img src="img/blog2.jpg" alt="Belajar Microsoft Office"
            class="w-full h-48 object-cover">
       <div class="p-6 text-left">
@@ -793,7 +934,12 @@
     </article>
 
     <!-- Artikel 3 -->
-    <article class="bg-gray-50 rounded-2xl shadow-md hover:shadow-xl transition overflow-hidden">
+    <article 
+      class="bg-gray-50 rounded-2xl shadow-md hover:shadow-xl transition overflow-hidden"
+      data-aos="fade-up"
+      data-aos-duration="800"
+      data-aos-delay="300"
+    >
       <img src="img/blog3.jpg" alt="Belajar desain grafis"
            class="w-full h-48 object-cover">
       <div class="p-6 text-left">
@@ -808,7 +954,12 @@
     </article>
 
     <!-- Artikel 4 -->
-    <article class="bg-gray-50 rounded-2xl shadow-md hover:shadow-xl transition overflow-hidden">
+    <article 
+      class="bg-gray-50 rounded-2xl shadow-md hover:shadow-xl transition overflow-hidden"
+      data-aos="fade-up"
+      data-aos-duration="800"
+      data-aos-delay="400"
+    >
       <img src="img/blog4.jpg" alt="Belajar coding untuk pemula"
            class="w-full h-48 object-cover">
       <div class="p-6 text-left">
@@ -823,7 +974,12 @@
     </article>
 
     <!-- Artikel 5 -->
-    <article class="bg-gray-50 rounded-2xl shadow-md hover:shadow-xl transition overflow-hidden">
+    <article 
+      class="bg-gray-50 rounded-2xl shadow-md hover:shadow-xl transition overflow-hidden"
+      data-aos="fade-up"
+      data-aos-duration="800"
+      data-aos-delay="500"
+    >
       <img src="img/blog5.jpg" alt="Pelatihan komputer untuk siswa"
            class="w-full h-48 object-cover">
       <div class="p-6 text-left">
@@ -838,7 +994,12 @@
     </article>
 
     <!-- Artikel 6 -->
-    <article class="bg-gray-50 rounded-2xl shadow-md hover:shadow-xl transition overflow-hidden">
+    <article 
+      class="bg-gray-50 rounded-2xl shadow-md hover:shadow-xl transition overflow-hidden"
+      data-aos="fade-up"
+      data-aos-duration="800"
+      data-aos-delay="600"
+    >
       <img src="img/blog6.jpg" alt="Belajar presentasi profesional"
            class="w-full h-48 object-cover">
       <div class="p-6 text-left">
@@ -855,7 +1016,13 @@
 
   <!-- Tombol Lihat Semua -->
   <div class="text-center mt-12">
-    <a href="#all-blogs" class="inline-block bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-800 transition">
+    <a 
+      href="#all-blogs" 
+      class="inline-block bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-800 transition"
+      data-aos="zoom-in"
+      data-aos-duration="800"
+      data-aos-delay="700"
+    >
       Lihat Semua Artikel
     </a>
   </div>
@@ -872,15 +1039,25 @@
         <div class="container mx-auto px-6">
           <div class="max-w-2xl mx-auto">
             <div class="text-center mb-10">
-              <h1 class="text-4xl font-bold text-slate-900">
+              <h1 
+                class="text-4xl font-bold text-slate-900"
+                data-aos="fade-up"
+                data-aos-duration="800"
+              >
                 Formulir Pendaftaran
               </h1>
-              <p id="form-subtitle" class="text-lg text-gray-600 mt-2">
+              <p 
+                id="form-subtitle" 
+                class="text-lg text-gray-600 mt-2"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="200"
+              >
                 Pilih program dan jenjang Anda untuk memulai.
               </p>
             </div>
             <form id="registration-form" class="space-y-6">
-              <div>
+              <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
                 <label
                   for="nama"
                   class="block text-sm font-medium text-gray-700"
@@ -894,7 +1071,7 @@
                   class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500"
                 />
               </div>
-              <div>
+              <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
                 <label
                   for="jenjang-sekolah"
                   class="block text-sm font-medium text-gray-700"
@@ -912,7 +1089,7 @@
                   <option>Mahasiswa/Umum</option>
                 </select>
               </div>
-              <div>
+              <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
                 <label
                   for="wali"
                   class="block text-sm font-medium text-gray-700"
@@ -925,7 +1102,7 @@
                   class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500"
                 />
               </div>
-              <div>
+              <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
                 <label
                   for="whatsapp"
                   class="block text-sm font-medium text-gray-700"
@@ -940,7 +1117,7 @@
                   class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500"
                 />
               </div>
-              <div>
+              <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="700">
                 <label
                   for="email"
                   class="block text-sm font-medium text-gray-700"
@@ -954,7 +1131,7 @@
                   class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500"
                 />
               </div>
-              <div class="text-center pt-4">
+              <div class="text-center pt-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="800">
                 <button
                   type="submit"
                   class="w-full bg-sky-600 text-white px-8 py-3 rounded-full hover:bg-sky-700 transition-colors text-lg font-semibold"
@@ -994,29 +1171,29 @@
               <li>
                 <a
                   href="#program-pemrograman"
-                  class="text-gray-400 hover:text-white"
+                  class="text-gray-400 hover:text-white transition-colors"
                   >Pemrograman Dasar</a
                 >
               </li>
               <li>
-                <a href="#program-word" class="text-gray-400 hover:text-white"
+                <a href="#program-word" class="text-gray-400 hover:text-white transition-colors"
                   >Microsoft Word</a
                 >
               </li>
               <li>
-                <a href="#program-excel" class="text-gray-400 hover:text-white"
+                <a href="#program-excel" class="text-gray-400 hover:text-white transition-colors"
                   >Microsoft Excel</a
                 >
               </li>
               <li>
                 <a
                   href="#program-powerpoint"
-                  class="text-gray-400 hover:text-white"
+                  class="text-gray-400 hover:text-white transition-colors"
                   >Microsoft PowerPoint</a
                 >
               </li>
               <li>
-                <a href="#program-canva" class="text-gray-400 hover:text-white"
+                <a href="#program-canva" class="text-gray-400 hover:text-white transition-colors"
                   >Canva</a
                 >
               </li>
@@ -1026,15 +1203,15 @@
             <h3 class="font-semibold mb-4">Bantuan</h3>
             <ul class="space-y-2">
               <li>
-                <a href="#" class="text-gray-400 hover:text-white">FAQ</a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">FAQ</a>
               </li>
               <li>
-                <a href="#kontak" class="text-gray-400 hover:text-white"
+                <a href="#kontak" class="text-gray-400 hover:text-white transition-colors"
                   >Kontak Kami</a
                 >
               </li>
               <li>
-                <a href="#" class="text-gray-400 hover:text-white"
+                <a href="#" class="text-gray-400 hover:text-white transition-colors"
                   >Kebijakan Privasi</a
                 >
               </li>
@@ -1054,16 +1231,17 @@
       </div>
     </footer>
 
+    <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Inisialisasi AOS
+      // Inisialisasi AOS
       AOS.init({
         duration: 800,
         easing: 'ease-in-out',
         once: true,
         offset: 100
       });
-
+      
       // Data Kursus
       const courseData = {
         pemrograman: {
@@ -1589,11 +1767,21 @@ Mohon informasi selanjutnya untuk proses pembayaran. Terima kasih.`;
         // Open WhatsApp in a new tab
         window.open(whatsappURL, "_blank");
       });
+      
+      // Navbar scroll effect
+      window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 100) {
+          navbar.classList.add('navbar-scroll');
+        } else {
+          navbar.classList.remove('navbar-scroll');
+        }
+      });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-    <script>
+    <!-- <script>
       gsap.from('.navbar', {duration: 1.5, y: '-100%', opacity: 0, ease: 'bounce'});
       gsap.from('.tombol-pilih-daftar', {duration: 1, x: -50, opacity: 0, delay : 0.5});
-    </script>
+    </script> -->
   </body>
 </html>
