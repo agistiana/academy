@@ -473,6 +473,24 @@
             `;
       }
 
+      // cta Logic
+
+       const faqs = document.querySelectorAll('.faq-item');
+    faqs.forEach(item => {
+      const button = item.querySelector('button');
+      const content = item.querySelector('.faq-content');
+      const icon = item.querySelector('svg');
+      button.addEventListener('click', () => {
+        const isOpen = !content.classList.contains('hidden');
+        document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+        document.querySelectorAll('.faq-item svg').forEach(i => i.classList.remove('rotate-180'));
+        if (!isOpen) {
+          content.classList.remove('hidden');
+          icon.classList.add('rotate-180');
+        }
+      });
+    });
+
       // Form Page Logic
       function setupFormPage(hash) {
         const params = new URLSearchParams(hash.split("?")[1]);
