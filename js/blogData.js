@@ -5,7 +5,7 @@ const blogData = [
     title: "5 Alasan Belajar Komputer di Era Digital",
     category: "Teknologi",
     date: "1 November 2025",
-    image: "img/blog1.jpg",
+    image: "../img/blog/Belajar-Komputer.jpg",
     summary:
       "Dunia kerja kini menuntut kemampuan digital. Pelajari mengapa keterampilan komputer menjadi bekal wajib untuk karier masa depan.",
     content: `
@@ -33,7 +33,7 @@ const blogData = [
     title: "Strategi Digital Marketing di Era Modern",
     category: "Bisnis",
     date: "3 November 2025",
-    image: "img/blog2.jpg",
+    image: "../img/blog/Strategi-era-modern.jpg",
     summary:
       "Pemasaran digital bukan lagi pilihan, melainkan keharusan bagi bisnis modern. Temukan strategi efektif untuk meningkatkan brand awareness dan penjualan.",
     content: `
@@ -60,7 +60,7 @@ const blogData = [
     title: "Membuat Desain Promosi yang Efektif",
     category: "Desain",
     date: "5 November 2025",
-    image: "img/blog3.jpg",
+    image: "../img/blog/Desain-Promosi.jpg",
     summary:
       "Desain promosi yang kuat dapat menarik perhatian pelanggan dan memperkuat citra merek. Pelajari prinsip desain yang efektif di sini.",
     content: `
