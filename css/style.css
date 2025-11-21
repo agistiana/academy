@@ -1,0 +1,57 @@
+body {
+        font-family: "Roboto", sans-serif;
+        /* opacity: 0;
+        animation: fadeUp 0.8s ease forwards; */
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      .font-heading {
+        font-family: "Poppins", sans-serif;
+      }
+      .hero-bg {
+        background-image: url("../img/bg-benner.jpeg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed; /* Background tetap saat scroll */
+      }
+      .tab-active {
+        border-color: #afd8ff;
+        background-color: #afd8ff;
+        color: white;
+      }
+      .section {
+        display: none;
+      }
+      .section.active {
+        display: block;
+      }
+      
+      /* Floating elements */
+      .floating {
+        animation: floating 3s ease-in-out infinite;
+      }
+      
+      @keyframes floating {
+        0% { transform: translate(0, 0px); }
+        50% { transform: translate(0, -10px); }
+        100% { transform: translate(0, -0px); }
+      }
+      
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #3b82f6;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #2563eb;
+      }

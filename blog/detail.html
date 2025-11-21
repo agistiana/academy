@@ -3,37 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Artikel | KursusPro Blog</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Artikel | RZF Academy Blog</title>
+  <link href="./src/output.css" rel="stylesheet">
+  <link href="./css/style.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(25px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .fade-seq {
-    opacity: 0;
-    animation: fadeUp 0.9s ease forwards;
-  }
-  .fade-delay-1 { animation-delay: 0.1s; }
-  .fade-delay-2 { animation-delay: 0.3s; }
-  .fade-delay-3 { animation-delay: 0.5s; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-seq {
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards;
+    }
+    .fade-delay-1 { animation-delay: 0.1s; }
+    .fade-delay-2 { animation-delay: 0.3s; }
+    .fade-delay-3 { animation-delay: 0.5s; }
 
-  /* Animasi keluar */
-  @keyframes fadeOutPage {
-    from { opacity: 1; transform: translateY(0); }
-    to { opacity: 0; transform: translateY(10px); }
-  }
-  .fade-out {
-    animation: fadeOutPage 0.6s ease forwards;
-  }
-</style>
+    /* Animasi keluar */
+    @keyframes fadeOutPage {
+      from { opacity: 1; transform: translateY(0); }
+      to { opacity: 0; transform: translateY(10px); }
+    }
+    .fade-out {
+      animation: fadeOutPage 0.6s ease forwards;
+    }
 
-
+    /* AOS Fallback */
+    [data-aos] {
+      opacity: 1;
+      transition: all 0.8s ease;
+    }
+    
+    [data-aos="fade-up"] {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    
+    [data-aos="fade-down"] {
+      transform: translateY(-30px);
+      opacity: 0;
+    }
+    
+    [data-aos="fade-left"] {
+      transform: translateX(-30px);
+      opacity: 0;
+    }
+    
+    [data-aos="fade-right"] {
+      transform: translateX(30px);
+      opacity: 0;
+    }
+    
+    [data-aos="zoom-in"] {
+      transform: scale(0.9);
+      opacity: 0;
+    }
+    
+    [data-aos].aos-animate {
+      transform: translateY(0) translateX(0) scale(1);
+      opacity: 1;
+    }
+  </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
 
   <!-- Navbar -->
-  <header class="bg-white shadow-md sticky top-0 z-50">
+  <header class="bg-white shadow-md sticky top-0 z-50" data-aos="fade-down">
       <nav
         class="navbar container mx-auto px-6 py-4 flex justify-between items-center"
       >
@@ -102,6 +138,8 @@
         <a
           href="../index.html#form"
           class="hidden md:block bg-sky-600 text-white px-5 py-2 rounded-full hover:bg-sky-700 transition-colors"
+          data-aos="zoom-in"
+          data-aos-delay="200"
           >Daftar Sekarang</a
         >
         <button id="mobile-menu-button" class="md:hidden">
@@ -158,20 +196,20 @@
     </header>
 
   <!-- Artikel -->
-  <article class="max-w-4xl mx-auto px-6 py-16" id="blog-detail"></article>
+  <article class="max-w-4xl mx-auto px-6 py-16" id="blog-detail" data-aos="fade-up" data-aos-delay="100"></article>
 
   <!-- Footer -->
   <footer class="bg-slate-900 text-white">
       <div class="container mx-auto px-6 py-10">
         <div class="grid md:grid-cols-4 gap-8">
-          <div>
+          <div data-aos="fade-up" data-aos-delay="100">
             <h3 class="text-xl font-bold font-heading mb-4">RZF Academy</h3>
             <p class="text-gray-400">
               Membantu generasi muda Indonesia menguasai skill digital untuk
               masa depan yang lebih cerah.
             </p>
           </div>
-          <div>
+          <div data-aos="fade-up" data-aos-delay="200">
             <h3 class="font-semibold mb-4">Program Kursus</h3>
             <ul class="space-y-2">
               <li>
@@ -205,7 +243,7 @@
               </li>
             </ul>
           </div>
-          <div>
+          <div data-aos="fade-up" data-aos-delay="300">
             <h3 class="font-semibold mb-4">Bantuan</h3>
             <ul class="space-y-2">
               <li>
@@ -219,7 +257,7 @@
               
             </ul>
           </div>
-          <div>
+          <div data-aos="fade-up" data-aos-delay="400">
             <h3 class="font-semibold mb-4">Hubungi Kami</h3>
             <p class="text-gray-400">Email: rzfacademy@gmail.com</p>
             <p class="text-gray-400">WhatsApp: +62 852-4850-3788</p>
@@ -227,6 +265,7 @@
         </div>
         <div
           class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-500"
+          data-aos="fade-up"
         >
           <p>&copy; 2024 RZF Academy. All rights reserved.</p>
         </div>
@@ -236,5 +275,69 @@
   <!-- Scripts -->
   <script src="../js/blogData.js"></script>
   <script src="../js/blogDetail.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  
+  <script>
+    // Inisialisasi AOS untuk halaman blog
+    document.addEventListener('DOMContentLoaded', function() {
+      // Pastikan AOS tersedia
+      if (typeof AOS !== 'undefined') {
+        AOS.init({
+          duration: 800,
+          once: true,
+          offset: 100,
+          delay: 100,
+          easing: 'ease-in-out',
+          mirror: false,
+          anchorPlacement: 'top-bottom'
+        });
+        
+        console.log('AOS initialized successfully on blog page');
+        
+        // Refresh AOS setelah konten blog dimuat
+        setTimeout(() => {
+          AOS.refresh();
+        }, 500);
+      } else {
+        console.warn('AOS not found, using fallback animations');
+        // Fallback untuk animasi manual
+        const animatedElements = document.querySelectorAll('[data-aos]');
+        animatedElements.forEach((el, index) => {
+          setTimeout(() => {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0) translateX(0) scale(1)';
+          }, index * 100);
+        });
+      }
+      
+      // Tambahkan event listener untuk navigasi
+      const links = document.querySelectorAll('a[href^="#"], a[href^="../index.html#"]');
+      links.forEach(link => {
+        link.addEventListener('click', function(e) {
+          // Animasi keluar sebelum navigasi
+          document.body.classList.add('fade-out');
+          
+          setTimeout(() => {
+            // Hapus class fade-out setelah navigasi
+            document.body.classList.remove('fade-out');
+            
+            // Refresh AOS setelah navigasi
+            if (typeof AOS !== 'undefined') {
+              setTimeout(() => {
+                AOS.refresh();
+              }, 300);
+            }
+          }, 600);
+        });
+      });
+    });
+    
+    // Fallback jika konten blog dimuat secara dinamis
+    window.addEventListener('load', function() {
+      if (typeof AOS !== 'undefined') {
+        AOS.refresh();
+      }
+    });
+  </script>
 </body>
 </html>
