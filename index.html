@@ -734,7 +734,7 @@
             </h3>
             <div
               class="flex justify-center border-b-2 mb-8 space-x-2 md:space-x-4 program-tabs"
-              data-aos="fade-up"
+              data-aos="zoom-in-up"
               data-aos-delay="100"
             >
               <button
@@ -797,7 +797,7 @@
             <!-- Profil -->
             <div 
               class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition text-center"
-              data-aos="fade-up"
+              data-aos="zoom-in-up"
               data-aos-delay="200"
             >
               <h3 class="text-2xl font-semibold text-indigo-700 mb-3">Profil Kami</h3>
@@ -810,7 +810,7 @@
             <!-- Visi & Misi -->
             <div 
               class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition"
-              data-aos="fade-up"
+              data-aos="zoom-in-up"
               data-aos-delay="300"
             >
               <h3 class="text-2xl font-semibold text-indigo-700 mb-3 text-center">Visi & Misi</h3>
@@ -828,7 +828,7 @@
             <!-- Tim -->
             <div 
               class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition"
-              data-aos="fade-up"
+              data-aos="zoom-in-up"
               data-aos-delay="400"
             >
               <h3 class="text-2xl font-semibold text-indigo-700 mb-5 text-center">Tim Pengajar</h3>
@@ -1096,7 +1096,6 @@
         anchorPlacement: 'top-bottom'
       });
       aosInitialized = true;
-      console.log('AOS initialized');
     }
   }
   
@@ -1104,7 +1103,6 @@
     if (typeof AOS !== 'undefined') {
       setTimeout(() => {
         AOS.refresh();
-        console.log('AOS refreshed');
       }, 300);
     }
   }
@@ -1112,32 +1110,6 @@
   // Inisialisasi saat DOM ready
   document.addEventListener('DOMContentLoaded', function() {
     initAOS();
-    
-    // Refresh AOS ketika section berubah
-    const observer = new MutationObserver(function(mutations) {
-      mutations.forEach(function(mutation) {
-        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-          if (mutation.target.classList.contains('active')) {
-            setTimeout(() => {
-              refreshAOS();
-            }, 500);
-          }
-        }
-      });
-    });
-    
-    // Observe semua sections
-    document.querySelectorAll('.section').forEach(section => {
-      observer.observe(section, {
-        attributes: true,
-        attributeFilter: ['class']
-      });
-    });
-  });
-  
-  // Fallback untuk browser yang tidak support MutationObserver
-  window.addEventListener('load', function() {
-    refreshAOS();
   });
   
   // Export fungsi untuk digunakan di file JS lain

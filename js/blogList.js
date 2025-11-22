@@ -2,10 +2,12 @@
 document.addEventListener("DOMContentLoaded", () => {
   const blogContainer = document.getElementById("blog-list");
 
-  blogData.forEach(article => {
+  blogData.forEach((article, index) => {
     const blogCard = document.createElement("article");
-blogCard.className =
-  "bg-gray-50 rounded-2xl shadow-md hover:shadow-xl transition overflow-hidden fade-in";
+    blogCard.className = "bg-gray-50 rounded-2xl shadow-md hover:shadow-xl transition overflow-hidden";
+    blogCard.setAttribute('data-aos', 'fade-up');
+    blogCard.setAttribute('data-aos-delay', (index % 3) * 100);
+    
     blogCard.innerHTML = `
       <img src="${article.image}" alt="${article.title}"
            class="w-full h-48 object-cover">
@@ -20,4 +22,11 @@ blogCard.className =
     `;
     blogContainer.appendChild(blogCard);
   });
+  
+  // Refresh AOS setelah blog list selesai dimuat
+  setTimeout(() => {
+    if (window.AOSUtils && window.AOSUtils.refresh) {
+      window.AOSUtils.refresh();
+    }
+  }, 500);
 });

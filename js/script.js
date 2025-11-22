@@ -32,26 +32,31 @@
       });
 
       function navigate() {
-        let hash = window.location.hash || "#home";
+  let hash = window.location.hash || "#home";
 
-        // Handle program pages
-        if (hash.startsWith("#program-")) {
-          const courseId = hash.substring(9);
-          if (courseData[courseId]) {
-            setupProgramPage(courseId);
-            showSection("program-template");
-          } else {
-            showSection("home");
-          }
-        } else if (hash.startsWith("#form")) {
-          setupFormPage(hash);
-          showSection("form");
-        } else {
-          showSection(hash.substring(1));
-        }
-        window.scrollTo(0, 0);
-      }
-
+  // Handle program pages
+  if (hash.startsWith("#program-")) {
+    const courseId = hash.substring(9);
+    if (courseData[courseId]) {
+      setupProgramPage(courseId);
+      showSection("program-template");
+      // Refresh AOS setelah konten program dimuat
+      setTimeout(refreshAOS, 600);
+    } else {
+      showSection("home");
+    }
+  } else if (hash.startsWith("#form")) {
+    setupFormPage(hash);
+    showSection("form");
+    // Refresh AOS setelah form dimuat
+    setTimeout(refreshAOS, 600);
+  } else {
+    showSection(hash.substring(1));
+    // Refresh AOS setelah section biasa dimuat
+    setTimeout(refreshAOS, 600);
+  }
+  window.scrollTo(0, 0);
+}
       function showSection(id) {
         sections.forEach((section) => {
           if (section.id === id) {
@@ -81,49 +86,51 @@
 
       // Program Page Logic
       function setupProgramPage(courseId) {
-        const course = courseData[courseId];
-        const programSection = document.getElementById("program-template");
+  const course = courseData[courseId];
+  const programSection = document.getElementById("program-template");
 
-        programSection.querySelector(".program-title").textContent =
-          course.title;
-        programSection.querySelector(".program-description").textContent =
-          course.description;
+  programSection.querySelector(".program-title").textContent = course.title;
+  programSection.querySelector(".program-description").textContent = course.description;
 
-        const tabsContainer = programSection.querySelector(".program-tabs");
-        tabsContainer.innerHTML = ""; // Clear previous tabs
+  const tabsContainer = programSection.querySelector(".program-tabs");
+  tabsContainer.innerHTML = ""; 
 
-        // Dynamically create tabs based on available jenjang
-        Object.keys(course.jenjang).forEach((jenjangKey) => {
-          const button = document.createElement("button");
-          button.dataset.jenjang = jenjangKey;
-          button.className =
-            "tab-btn border-b-4 pb-2 px-2 md:px-4 font-semibold transition-colors text-gray-500 border-transparent hover:border-sky-300";
-          button.textContent = jenjangKey.toUpperCase();
-          tabsContainer.appendChild(button);
-        });
+  // Dynamically create tabs based on available jenjang
+  Object.keys(course.jenjang).forEach((jenjangKey) => {
+    const button = document.createElement("button");
+    button.dataset.jenjang = jenjangKey;
+    button.className = "tab-btn border-b-4 pb-2 px-2 md:px-4 font-semibold transition-colors text-gray-500 border-transparent hover:border-sky-300";
+    button.textContent = jenjangKey.toUpperCase();
+    button.setAttribute('data-aos', 'zoom-in');
+    button.setAttribute('data-aos-delay', Object.keys(course.jenjang).indexOf(jenjangKey) * 100);
+    tabsContainer.appendChild(button);
+  });
 
-        const tabs = programSection.querySelectorAll(".tab-btn");
-        tabs.forEach((tab) => {
-          tab.addEventListener("click", () => {
-            const jenjang = tab.dataset.jenjang;
-            updateProgramContent(courseId, jenjang);
-            tabs.forEach((t) =>
-              t.classList.remove("tab-active", "text-sky-600", "border-sky-600")
-            );
-            tab.classList.add("tab-active");
-          });
-        });
+  const tabs = programSection.querySelectorAll(".tab-btn");
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const jenjang = tab.dataset.jenjang;
+      updateProgramContent(courseId, jenjang);
+      tabs.forEach((t) =>
+        t.classList.remove("tab-active", "text-sky-600", "border-sky-600")
+      );
+      tab.classList.add("tab-active");
+      // Refresh AOS setelah konten tab berubah
+      setTimeout(refreshAOS, 300);
+    });
+  });
 
-        // Activate the first tab by default
-        const firstJenjang = Object.keys(course.jenjang)[0];
-        if (firstJenjang) {
-          updateProgramContent(courseId, firstJenjang);
-          const firstTab = tabsContainer.querySelector(
-            `[data-jenjang="${firstJenjang}"]`
-          );
-          if (firstTab) firstTab.classList.add("tab-active");
-        }
-      }
+  // Activate the first tab by default
+  const firstJenjang = Object.keys(course.jenjang)[0];
+  if (firstJenjang) {
+    updateProgramContent(courseId, firstJenjang);
+    const firstTab = tabsContainer.querySelector(`[data-jenjang="${firstJenjang}"]`);
+    if (firstTab) firstTab.classList.add("tab-active");
+  }
+  
+  // Refresh AOS setelah program page selesai setup
+  setTimeout(refreshAOS, 800);
+}
 
       function updateProgramContent(courseId, jenjang) {
         const course = courseData[courseId];
@@ -277,3 +284,56 @@ Mohon informasi selanjutnya untuk proses pembayaran. Terima kasih.`;
   }
 
   document.addEventListener("DOMContentLoaded", typeEffect);
+// script.js - Perbaikan AOS untuk SPA
+let aosInitialized = false;
+
+function initAOS() {
+  if (typeof AOS !== 'undefined' && !aosInitialized) {
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100,
+      delay: 100,
+      easing: 'ease-in-out',
+      mirror: false,
+      anchorPlacement: 'top-bottom'
+    });
+    aosInitialized = true;
+    console.log('AOS initialized');
+  }
+}
+
+function refreshAOS() {
+  if (typeof AOS !== 'undefined') {
+    setTimeout(() => {
+      AOS.refresh();
+      console.log('AOS refreshed');
+    }, 300);
+  }
+}
+
+// Inisialisasi AOS saat pertama kali load
+document.addEventListener('DOMContentLoaded', function() {
+  initAOS();
+  
+  // Refresh AOS ketika section berubah
+  const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+        if (mutation.target.classList.contains('active')) {
+          setTimeout(() => {
+            refreshAOS();
+          }, 500);
+        }
+      }
+    });
+  });
+  
+  // Observe semua sections
+  document.querySelectorAll('.section').forEach(section => {
+    observer.observe(section, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+  });
+});
