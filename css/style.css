@@ -16,7 +16,7 @@ body {
         background-image: url("../img/bg-benner.jpeg");
         background-size: cover;
         background-position: center;
-        background-attachment: fixed; /* Background tetap saat scroll */
+        background-attachment: fixed;
       }
       .tab-active {
         border-color: #2b7fff;
@@ -45,7 +45,7 @@ body {
         background: #2563eb;
       }
 
-      /* style.css - Tambahan untuk animasi SPA */
+  
 .section {
   display: none;
 }
@@ -66,7 +66,6 @@ body {
   }
 }
 
-/* Pastikan AOS bekerja dengan baik */
 [data-aos] {
   pointer-events: none;
 }
@@ -86,3 +85,342 @@ body {
   100% { transform: translateY(0px); }
 }
 
+
+
+/* Animasi untuk tombol utama */
+.tombol-pilih-daftar {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.tombol-pilih-daftar:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(2, 132, 199, 0.3);
+}
+
+.tombol-pilih-daftar:active {
+  transform: translateY(-1px);
+}
+
+/* Efek ripple pada tombol */
+.tombol-pilih-daftar::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+.tombol-pilih-daftar:hover::after {
+  animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(20, 20);
+    opacity: 0;
+  }
+}
+
+/* Animasi untuk card program */
+.program-card {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+}
+
+.program-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.program-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.1) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 0.5rem;
+  z-index: 0;
+}
+
+.program-card:hover::before {
+  opacity: 1;
+}
+
+/* Animasi untuk icon di dalam card program */
+.program-card .icon-container {
+  transition: all 0.3s ease;
+}
+
+.program-card:hover .icon-container {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Animasi untuk card jenjang */
+.jenjang-card {
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.jenjang-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.7s ease;
+}
+
+.jenjang-card:hover::before {
+  left: 100%;
+}
+
+.jenjang-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Animasi untuk gambar card jenjang */
+.jenjang-card img {
+  transition: transform 0.6s ease;
+}
+
+.jenjang-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Animasi untuk floating icons */
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Animasi untuk testimoni card */
+.testimoni-card {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.testimoni-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.testimoni-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0ea5e9, #0369a1);
+  transition: width 0.4s ease;
+}
+
+.testimoni-card:hover::after {
+  width: 100%;
+}
+
+/* Animasi untuk foto testimoni */
+.testimoni-card img {
+  transition: all 0.4s ease;
+}
+
+.testimoni-card:hover img {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Animasi untuk FAQ items */
+.faq-item button {
+  transition: all 0.3s ease;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.faq-item button:hover {
+  background-color: rgba(2, 132, 199, 0.05);
+  transform: translateX(5px);
+}
+
+.faq-item svg {
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active svg {
+  transform: rotate(180deg);
+}
+
+.faq-content {
+  transition: all 0.4s ease;
+}
+
+/* Animasi untuk navbar links */
+.navbar .navbar-nav {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar .navbar-nav:not(.tombol-pilih-daftar)::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #0ea5e9;
+  transition: width 0.3s ease;
+}
+
+.navbar .navbar-nav:hover::after {
+  width: 100%;
+}
+
+/* Animasi untuk dropdown menu */
+#dropdown-menu {
+  transition: all 0.3s ease;
+  transform: translateY(-10px);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.group:hover #dropdown-menu {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Animasi untuk form inputs */
+input, select {
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(2, 132, 199, 0.1);
+}
+
+/* Animasi untuk footer links */
+footer a {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+footer a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+footer a:hover::after {
+  width: 100%;
+}
+
+/* Animasi untuk blog cards */
+.blog-card {
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+.blog-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.blog-card img {
+  transition: transform 0.6s ease;
+}
+
+.blog-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Animasi untuk tim pengajar */
+.tim-pengajar img {
+  transition: all 0.4s ease;
+}
+
+.tim-pengajar:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.tim-pengajar:hover .font-semibold {
+  color: #0ea5e9;
+}
+
+/* Animasi untuk tab buttons */
+.tab-btn {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.tab-btn::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: #0ea5e9;
+  transition: width 0.3s ease;
+}
+
+.tab-btn:hover::after,
+.tab-btn.active::after {
+  width: 100%;
+}
+
+.tab-btn:hover {
+  color: #0ea5e9;
+}
+
+/* Animasi untuk logo */
+.navbar img {
+  transition: all 0.4s ease;
+}
+
+
+
+/* Animasi untuk mobile menu button */
+#mobile-menu-button svg {
+  transition: transform 0.3s ease;
+}
+
+#mobile-menu-button.active svg {
+  transform: rotate(90deg);
+}

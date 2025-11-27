@@ -8,6 +8,7 @@
     <link href="./css/output.css" rel="stylesheet">
     <link href="./css/style.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.css" integrity="sha512-NhLySQDkiKSKnT+R795uaHWRQ7D3VuIvgeOLCK8cWq4w5fq4sWF90gj8eURpTqn/f1mFzqClpOz8JPlgVTLfFw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap"
@@ -24,13 +25,13 @@
       >
         <a href="#home" class="text-2xl font-bold font-heading text-slate-900"
           ><img src="./img/Logo RZF Academy Biru (2).png" alt="" width="40%"
-        /></a>
+        />
         <div class="hidden md:flex items-center space-x-6">
-          <a href="#home" class="text-gray-600 hover:text-sky-600">Beranda</a>
+          <a href="#home" class="text-gray-600 navbar-nav hover:text-sky-600">Beranda</a>
           <div class="relative group">
             <button
               id="dropdown-button"
-              class="text-gray-600 hover:text-sky-600 flex items-center"
+              class="text-gray-600 navbar-nav hover:text-sky-600 flex items-center"
             >
               Program Kursus
               <svg
@@ -54,33 +55,33 @@
             >
               <a
                 href="#program-pemrograman"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-sky-100"
+                class="block px-4 py-2 text-sm navbar-nav text-gray-700 hover:bg-sky-100"
                 >Pemrograman Dasar</a
               >
               <a
                 href="#program-word"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-sky-100"
+                class="block px-4 py-2 text-sm navbar-nav text-gray-700 hover:bg-sky-100"
                 >Microsoft Word</a
               >
               <a
                 href="#program-excel"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-sky-100"
+                class="block px-4 py-2 text-sm navbar-nav text-gray-700 hover:bg-sky-100"
                 >Microsoft Excel</a
               >
               <a
                 href="#program-powerpoint"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-sky-100"
+                class="block px-4 py-2 text-sm navbar-nav text-gray-700 hover:bg-sky-100"
                 >Microsoft PowerPoint</a
               >
               <a
                 href="#program-canva"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-sky-100"
+                class="block px-4 py-2 text-sm navbar-nav text-gray-700 hover:bg-sky-100"
                 >Canva</a
               >
             </div>
           </div>
-          <a href="#blog" class="text-gray-600 hover:text-sky-600">Blog</a>
-          <a href="#tentang" class="text-gray-600 hover:text-sky-600"
+          <a href="#blog" class="text-gray-600 navbar-nav hover:text-sky-600">Blog</a>
+          <a href="#tentang" class="text-gray-600 navbar-nav hover:text-sky-600"
             >Tentang Kami</a
           >
         </div>
@@ -109,31 +110,31 @@
         </button>
       </nav>
       <!-- Mobile Menu -->
-      <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
+      <div id="mobile-menu" class="hidden navbar-nav md:hidden px-6 pb-4 space-y-2">
         <a href="#home" class="block text-gray-600 hover:text-sky-600"
           >Beranda</a
         >
         <a
           href="#program-pemrograman"
-          class="block text-gray-600 hover:text-sky-600"
+          class="block text-gray-600 navbar-nav hover:text-sky-600"
           >Pemrograman Dasar</a
         >
-        <a href="#program-word" class="block text-gray-600 hover:text-sky-600"
+        <a href="#program-word" class="block navbar-nav text-gray-600 hover:text-sky-600"
           >Microsoft Word</a
         >
-        <a href="#program-excel" class="block text-gray-600 hover:text-sky-600"
+        <a href="#program-excel" class="block navbar-nav text-gray-600 hover:text-sky-600"
           >Microsoft Excel</a
         >
         <a
           href="#program-powerpoint"
-          class="block text-gray-600 hover:text-sky-600"
+          class="block navbar-nav text-gray-600 hover:text-sky-600"
           >Microsoft PowerPoint</a
         >
-        <a href="#program-canva" class="block text-gray-600 hover:text-sky-600"
+        <a href="#program-canva" class="block navbar-nav text-gray-600 hover:text-sky-600"
           >Canva</a
         >
-        <a href="#blog" class="block text-gray-600 hover:text-sky-600">Blog</a>
-        <a href="#tentang" class="block text-gray-600 hover:text-sky-600"
+        <a href="#blog" class="block navbar-nav text-gray-600 hover:text-sky-600">Blog</a>
+        <a href="#tentang" class="block navbar-nav text-gray-600 hover:text-sky-600"
           >Tentang Kami</a
         >
         <a
@@ -171,7 +172,7 @@
               </p>
               <a
                 href="#program-pemrograman"
-                class="bg-sky-600 text-white px-8 py-3 rounded-full hover:bg-sky-700 transition-colors text-lg font-semibold tombol-pilih-daftar inline-block"
+                class="bg-sky-600 text-white px-8 py-3 rounded-full transition-colors text-lg font-semibold tombol-pilih-daftar inline-block"
                 data-aos="zoom-in"
                 data-aos-duration="800"
                 data-aos-delay="400"
@@ -458,7 +459,7 @@
                   class="w-full h-48 object-cover"
                 />
                 <div class="p-6">
-                  <h3 class="text-xl font-bold mb-2">Sekolah Dasar</h3>
+                  <h3 class="text-xl font-bold mb-2">SD</h3>
                   <p class="text-gray-600 mb-4">
                     Mulai petualangan digitalmu dengan cara yang seru dan mudah
                     dipahami.
@@ -1081,7 +1082,6 @@
 <script src="js/blogList.js"></script>
 
 <script>
-  // Global AOS initialization dengan handling SPA
   let aosInitialized = false;
   
   function initAOS() {

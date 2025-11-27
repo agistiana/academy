@@ -48,7 +48,7 @@
   } else if (hash.startsWith("#form")) {
     setupFormPage(hash);
     showSection("form");
-    // Refresh AOS setelah form dimuat
+    // Refresh AOS setelah form dimua
     setTimeout(refreshAOS, 600);
   } else {
     showSection(hash.substring(1));
@@ -95,7 +95,6 @@
   const tabsContainer = programSection.querySelector(".program-tabs");
   tabsContainer.innerHTML = ""; 
 
-  // Dynamically create tabs based on available jenjang
   Object.keys(course.jenjang).forEach((jenjangKey) => {
     const button = document.createElement("button");
     button.dataset.jenjang = jenjangKey;
@@ -120,7 +119,6 @@
     });
   });
 
-  // Activate the first tab by default
   const firstJenjang = Object.keys(course.jenjang)[0];
   if (firstJenjang) {
     updateProgramContent(courseId, firstJenjang);
@@ -149,14 +147,14 @@
         contentContainer.innerHTML = `
                 <div class="grid md:grid-cols-2 gap-8">
                     <div>
-                        <h4 class="text-xl font-semibold mb-3 text-slate-800">🎯 Tujuan Pembelajaran</h4>
+                        <h4 class="text-xl font-semibold mb-3 mt-6 text-slate-800"><i class="fa-solid fa-trophy"></i> Tujuan Pembelajaran</h4>
                         <p class="text-gray-600">${data.tujuan}</p>
                         
-                        <h4 class="text-xl font-semibold mb-3 mt-6 text-slate-800">📚 Materi yang Akan Dipelajari</h4>
+                        <h4 class="text-xl font-semibold mb-3 mt-6 text-slate-800"><i class="fa-solid fa-book-open"></i> Materi yang Akan Dipelajari</h4>
                         <ul class="space-y-2 text-gray-600">${materiList}</ul>
                     </div>
                     <div class="bg-gray-50 p-6 rounded-lg">
-                        <h4 class="text-xl font-semibold mb-3 text-slate-800">🏆 Contoh Proyek Akhir</h4>
+                        <h4 class="text-xl font-semibold mb-3 text-slate-800">Contoh Proyek Akhir</h4>
                         <p class="text-gray-600 mb-6">${data.proyek}</p>
                         
                         <div class="space-y-3 text-gray-700">
@@ -272,7 +270,7 @@ Mohon informasi selanjutnya untuk proses pembayaran. Terima kasih.`;
     let speed = isDeleting ? 50 : 100;
 
     if (!isDeleting && j === currentWord.length) {
-      speed = 1500; // jeda sebelum hapus
+      speed = 1500;
       isDeleting = true;
     } else if (isDeleting && j === 0) {
       isDeleting = false;
@@ -284,7 +282,7 @@ Mohon informasi selanjutnya untuk proses pembayaran. Terima kasih.`;
   }
 
   document.addEventListener("DOMContentLoaded", typeEffect);
-// script.js - Perbaikan AOS untuk SPA
+
 let aosInitialized = false;
 
 function initAOS() {
@@ -312,7 +310,7 @@ function refreshAOS() {
   }
 }
 
-// Inisialisasi AOS saat pertama kali load
+
 document.addEventListener('DOMContentLoaded', function() {
   initAOS();
   

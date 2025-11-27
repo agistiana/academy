@@ -125,6 +125,19 @@ const courseData = {
           description:
             "Pelajari cara mengolah data, membuat laporan, dan visualisasi grafik dengan spreadsheet untuk analisis yang akurat dan efisien.",
           jenjang: {
+            sd: {
+              tujuan:
+                "Siswa mampu membuat tabel sederhana, melakukan penjumlahan dasar, dan mewarnai sel untuk data visual.",
+              materi: [
+                "Mengenal Tabel",
+                "Penjumlahan Otomatis (AutoSum)",
+                "Mewarnai Sel dan Mengubah Font",
+                "Membuat Jadwal Pelajaran",
+              ],
+              proyek: "Membuat Jadwal Piket Kelas.",
+              durasi: "4x Pertemuan @ 90 Menit",
+              biaya: "Rp 500.000",
+            },
             smp: {
               tujuan:
                 "Siswa mampu menggunakan rumus dasar, membuat tabel, dan membuat grafik sederhana untuk tugas sekolah.",
@@ -164,19 +177,7 @@ const courseData = {
               durasi: "10x Pertemuan @ 120 Menit",
               biaya: "Rp 1.800.000",
             },
-            sd: {
-              tujuan:
-                "Siswa mampu membuat tabel sederhana, melakukan penjumlahan dasar, dan mewarnai sel untuk data visual.",
-              materi: [
-                "Mengenal Tabel",
-                "Penjumlahan Otomatis (AutoSum)",
-                "Mewarnai Sel dan Mengubah Font",
-                "Membuat Jadwal Pelajaran",
-              ],
-              proyek: "Membuat Jadwal Piket Kelas.",
-              durasi: "4x Pertemuan @ 90 Menit",
-              biaya: "Rp 500.000",
-            },
+            
           },
         },
         powerpoint: {
@@ -244,6 +245,19 @@ const courseData = {
           description:
             "Pelajari cara membuat desain visual yang menarik untuk media sosial, presentasi, dan materi promosi dengan mudah tanpa perlu skill desain profesional.",
           jenjang: {
+            sd: {
+              tujuan:
+                "Siswa mampu membuat kartu ucapan digital dan poster sederhana menggunakan template dan elemen yang ada.",
+              materi: [
+                "Mengenal Template Canva",
+                "Mengganti Teks dan Warna",
+                "Menambahkan Stiker dan Elemen Lucu",
+                "Menyimpan Hasil Desain",
+              ],
+              proyek: "Membuat Kartu Ucapan Ulang Tahun Digital.",
+              durasi: "4x Pertemuan @ 90 Menit",
+              biaya: "Rp 500.000",
+            },
             smp: {
               tujuan:
                 "Siswa mampu membuat desain poster digital dan konten sederhana untuk media sosial sekolah.",
@@ -284,19 +298,7 @@ const courseData = {
               durasi: "8x Pertemuan @ 120 Menit",
               biaya: "Rp 1.500.000",
             },
-            sd: {
-              tujuan:
-                "Siswa mampu membuat kartu ucapan digital dan poster sederhana menggunakan template dan elemen yang ada.",
-              materi: [
-                "Mengenal Template Canva",
-                "Mengganti Teks dan Warna",
-                "Menambahkan Stiker dan Elemen Lucu",
-                "Menyimpan Hasil Desain",
-              ],
-              proyek: "Membuat Kartu Ucapan Ulang Tahun Digital.",
-              durasi: "4x Pertemuan @ 90 Menit",
-              biaya: "Rp 500.000",
-            },
+            
           },
         },
       };

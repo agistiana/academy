@@ -7,6 +7,7 @@
   <link rel="icon" href="../img/favicon.png" type="image/x-icon">
   <link href="../src/output.css" rel="stylesheet">
   <link href="../css/style.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.css" integrity="sha512-NhLySQDkiKSKnT+R795uaHWRQ7D3VuIvgeOLCK8cWq4w5fq4sWF90gj8eURpTqn/f1mFzqClpOz8JPlgVTLfFw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     @keyframes fadeUp {
@@ -65,6 +66,92 @@
       transform: translateY(0) translateX(0) scale(1);
       opacity: 1;
     }
+
+    /* Animasi khusus untuk halaman blog */
+    .blog-content img {
+      transition: all 0.4s ease;
+      border-radius: 8px;
+    }
+
+    .blog-content img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .blog-tag {
+      transition: all 0.3s ease;
+    }
+
+    .blog-tag:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
+    }
+
+    .share-btn {
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .share-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .share-btn::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 5px;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.5);
+      opacity: 0;
+      border-radius: 100%;
+      transform: scale(1, 1) translate(-50%);
+      transform-origin: 50% 50%;
+    }
+
+    .share-btn:hover::after {
+      animation: ripple 1s ease-out;
+    }
+
+    @keyframes ripple {
+      0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+      }
+      100% {
+        transform: scale(20, 20);
+        opacity: 0;
+      }
+    }
+
+    /* Back to blog button */
+    .back-to-blog {
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .back-to-blog:hover {
+      transform: translateX(-5px);
+      color: #0ea5e9;
+    }
+
+    .back-to-blog::before {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #0ea5e9;
+      transition: width 0.3s ease;
+    }
+
+    .back-to-blog:hover::before {
+      width: 100%;
+    }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
@@ -78,11 +165,11 @@
           ><img src="../img/Logo RZF Academy Biru (2).png" alt="" width="40%"
         /></a>
         <div class="hidden md:flex items-center space-x-6">
-          <a href="../index.html#home" class="text-gray-600 hover:text-sky-600">Beranda</a>
+          <a href="../index.html#home" class="navbar navbar-nav text-gray-600 hover:text-sky-600">Beranda</a>
           <div class="relative group">
             <button
               id="dropdown-button"
-              class="text-gray-600 hover:text-sky-600 flex items-center"
+              class="navbar navbar-nav text-gray-600 hover:text-sky-600 flex items-center"
             >
               Program Kursus
               <svg
@@ -106,39 +193,39 @@
             >
               <a
                 href="../index.html#program-pemrograman"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-sky-100"
+                class="navbar navbar-nav block px-4 py-2 text-sm text-gray-700 hover:bg-sky-100"
                 >Pemrograman Dasar</a
               >
               <a
                 href="../index.html#program-word"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-sky-100"
+                class="navbar navbar-nav block px-4 py-2 text-sm text-gray-700 hover:bg-sky-100"
                 >Microsoft Word</a
               >
               <a
                 href="../index.html#program-excel"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-sky-100"
+                class="navbar navbar-nav block px-4 py-2 text-sm text-gray-700 hover:bg-sky-100"
                 >Microsoft Excel</a
               >
               <a
                 href="../index.html#program-powerpoint"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-sky-100"
+                class="navbar navbar-nav block px-4 py-2 text-sm text-gray-700 hover:bg-sky-100"
                 >Microsoft PowerPoint</a
               >
               <a
                 href="../index.html#program-canva"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-sky-100"
+                class="navbar navbar-nav block px-4 py-2 text-sm text-gray-700 hover:bg-sky-100"
                 >Canva</a
               >
             </div>
           </div>
-          <a href="../index.html#blog" class="text-gray-600 hover:text-sky-600">Blog</a>
-          <a href="../index.html#tentang" class="text-gray-600 hover:text-sky-600"
+          <a href="../index.html#blog" class="navbar navbar-nav text-gray-600 hover:text-sky-600">Blog</a>
+          <a href="../index.html#tentang" class="navbar navbar-nav text-gray-600 hover:text-sky-600"
             >Tentang Kami</a
           >
         </div>
         <a
           href="../index.html#form"
-          class="hidden md:block bg-sky-600 text-white px-5 py-2 rounded-full hover:bg-sky-700 transition-colors"
+          class="tombol-pilih-daftar hidden md:block bg-sky-600 text-white px-5 py-2 rounded-full hover:bg-sky-700 transition-colors"
           data-aos="zoom-in"
           data-aos-delay="200"
           >Daftar Sekarang</a
@@ -162,35 +249,35 @@
       </nav>
       <!-- Mobile Menu -->
       <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
-        <a href="../index.html#home" class="block text-gray-600 hover:text-sky-600"
+        <a href="../index.html#home" class="navbar block text-gray-600 hover:text-sky-600"
           >Beranda</a
         >
         <a
           href="../index.html#program-pemrograman"
-          class="block text-gray-600 hover:text-sky-600"
+          class="navbar block text-gray-600 hover:text-sky-600"
           >Pemrograman Dasar</a
         >
-        <a href="../index.html#program-word" class="block text-gray-600 hover:text-sky-600"
+        <a href="../index.html#program-word" class="navbar block text-gray-600 hover:text-sky-600"
           >Microsoft Word</a
         >
-        <a href="../index.html#program-excel" class="block text-gray-600 hover:text-sky-600"
+        <a href="../index.html#program-excel" class="navbar block text-gray-600 hover:text-sky-600"
           >Microsoft Excel</a
         >
         <a
           href="../index.html#program-powerpoint"
-          class="block text-gray-600 hover:text-sky-600"
+          class="navbar block text-gray-600 hover:text-sky-600"
           >Microsoft PowerPoint</a
         >
-        <a href="../index.html#program-canva" class="block text-gray-600 hover:text-sky-600"
+        <a href="../index.html#program-canva" class="navbar block text-gray-600 hover:text-sky-600"
           >Canva</a
         >
-        <a href="../index.html#blog" class="block text-gray-600 hover:text-sky-600">Blog</a>
-        <a href="../index.html#tentang" class="block text-gray-600 hover:text-sky-600"
+        <a href="../index.html#blog" class="navbar block text-gray-600 hover:text-sky-600">Blog</a>
+        <a href="../index.html#tentang" class="navbar block text-gray-600 hover:text-sky-600"
           >Tentang Kami</a
         >
         <a
           href="../index.html#form"
-          class="block bg-sky-600 text-white text-center mt-2 px-5 py-2 rounded-full hover:bg-sky-700 transition-colors"
+          class="tombol-pilih-daftar block bg-sky-600 text-white text-center mt-2 px-5 py-2 rounded-full hover:bg-sky-700 transition-colors"
           >Daftar Sekarang</a
         >
       </div>
@@ -215,30 +302,30 @@
             <ul class="space-y-2">
               <li>
                 <a
-                  href="#program-pemrograman"
+                  href="../index.html#program-pemrograman"
                   class="text-gray-400 hover:text-white"
                   >Pemrograman Dasar</a
                 >
               </li>
               <li>
-                <a href="#program-word" class="text-gray-400 hover:text-white"
+                <a href="../index.html#program-word" class="text-gray-400 hover:text-white"
                   >Microsoft Word</a
                 >
               </li>
               <li>
-                <a href="#program-excel" class="text-gray-400 hover:text-white"
+                <a href="../index.html#program-excel" class="text-gray-400 hover:text-white"
                   >Microsoft Excel</a
                 >
               </li>
               <li>
                 <a
-                  href="#program-powerpoint"
+                  href="../index.html#program-powerpoint"
                   class="text-gray-400 hover:text-white"
                   >Microsoft PowerPoint</a
                 >
               </li>
               <li>
-                <a href="#program-canva" class="text-gray-400 hover:text-white"
+                <a href="../index.html#program-canva" class="text-gray-400 hover:text-white"
                   >Canva</a
                 >
               </li>
@@ -336,6 +423,55 @@
           }, 600);
         });
       });
+
+      // Tambahkan class untuk animasi pada konten blog yang dimuat dinamis
+      const blogDetailContainer = document.getElementById('blog-detail');
+      if (blogDetailContainer) {
+        // Observer untuk mendeteksi perubahan pada konten blog
+        const observer = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type === 'childList') {
+              // Tambahkan class animasi ke elemen-elemen baru
+              addAnimationClasses();
+            }
+          });
+        });
+
+        observer.observe(blogDetailContainer, {
+          childList: true,
+          subtree: true
+        });
+
+        // Fungsi untuk menambahkan class animasi
+        function addAnimationClasses() {
+          // Tambahkan class untuk gambar
+          const images = blogDetailContainer.querySelectorAll('img');
+          images.forEach(img => {
+            img.classList.add('blog-content');
+          });
+
+          // Tambahkan class untuk tag
+          const tags = blogDetailContainer.querySelectorAll('.tag, [class*="tag"]');
+          tags.forEach(tag => {
+            tag.classList.add('blog-tag');
+          });
+
+          // Tambahkan class untuk tombol share
+          const shareButtons = blogDetailContainer.querySelectorAll('.share-btn, button, .btn');
+          shareButtons.forEach(btn => {
+            btn.classList.add('share-btn');
+          });
+
+          // Tambahkan class untuk tombol kembali
+          const backButtons = blogDetailContainer.querySelectorAll('.back-to-blog, [href*="blog"]');
+          backButtons.forEach(btn => {
+            btn.classList.add('back-to-blog');
+          });
+        }
+
+        // Panggil sekali di awal
+        setTimeout(addAnimationClasses, 100);
+      }
     });
     
     // Fallback jika konten blog dimuat secara dinamis
